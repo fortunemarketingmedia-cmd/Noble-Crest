@@ -36,6 +36,10 @@ body{font-size:16px;overflow-x:hidden}.scroll-progress{position:fixed;z-index:10
 @media(max-width:620px){.projects-overview-intro{padding-bottom:45px}.project-type-grid,.project-requirement-grid{grid-template-columns:1fr}.project-requirement-grid .project-overview-card:last-child{grid-column:auto}.project-overview-card,.project-overview-card-large{min-height:480px}.project-card-copy{left:24px;right:24px;bottom:24px}.project-card-copy h3,.project-requirement-grid .project-card-copy h3{font-size:2.6rem}.projects-market-list>div{grid-template-columns:32px 1fr}.projects-market-list p{grid-column:2}}
 @media(prefers-reduced-motion:reduce){.project-overview-card>img{transition:none}}
 
+.home-values-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:980px){.home-values-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.home-values-row{grid-template-columns:1fr}}
+
 .hero-supporting-title{margin:20px 0 12px;font:500 1.25rem 'Playfair Display';letter-spacing:0}
 .pagehero-image{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover}.pagehero:before{z-index:1}.pagehero .wrap{z-index:2}.pagehero .crumb a{border-bottom:1px solid rgba(255,255,255,.55)}
 .related-browse{display:grid;gap:22px}.related-browse h3{margin-top:28px}.related-browse .filter-links a{margin-right:8px}
