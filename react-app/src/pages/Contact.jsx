@@ -7,7 +7,11 @@ import useTitle from '../hooks/useTitle'
 
 export default function Contact() {
   const [params] = useSearchParams()
-  const context = params.get('property') || params.get('category') || ''
+  const category = params.get('category') || ''
+  const context = params.get('property') || category
+  const initialMarket = params.get('market') || params.get('city') || ''
+  const initialPropertyType = params.get('propertyType') || (['residential', 'commercial'].includes(category) ? category : '')
+  const initialRequirement = params.get('requirement') || (['rent', 'lease'].includes(category) ? category : '')
   const [status, setStatus] = useState('idle')
   const openedAt = useRef(0)
   useEffect(() => { openedAt.current = Date.now() }, [])
@@ -37,8 +41,8 @@ export default function Contact() {
         <label className="honeypot" aria-hidden="true">Website<input name="website" tabIndex="-1" autoComplete="off" /></label>
         <div className="form-grid"><label>Full Name *<input required name="name" autoComplete="name" /></label><label>Phone Number *<input required type="tel" name="phone" autoComplete="tel" /></label></div>
         <label>Email Address<input type="email" name="email" autoComplete="email" /></label>
-        <div className="form-grid"><label>Preferred Market *<select required name="market" defaultValue=""><option value="" disabled>Select market</option><option>Mumbai</option><option>Pune</option><option>Dubai</option><option>Other</option></select></label><label>Property Type<select name="propertyType" defaultValue={['residential', 'commercial'].includes(context) ? context : ''}><option value="">Not sure</option><option value="residential">Residential</option><option value="commercial">Commercial</option></select></label></div>
-        <div className="form-grid"><label>Requirement *<select required name="requirement" defaultValue={['sale', 'rent', 'lease'].includes(context) ? context : ''}><option value="" disabled>Select requirement</option><option value="buy">Buy</option><option value="sell">Sell</option><option value="rent">Rent</option><option value="lease">Lease</option><option value="consultation">General Consultation</option></select></label><label>Budget Range<input name="budget" placeholder="Optional" /></label></div>
+        <div className="form-grid"><label>Preferred Market *<select required name="market" defaultValue={initialMarket}><option value="" disabled>Select market</option><option>Mumbai</option><option>Pune</option><option>Dubai</option><option>Other</option></select></label><label>Property Type<select name="propertyType" defaultValue={initialPropertyType}><option value="">Not sure</option><option value="residential">Residential</option><option value="commercial">Commercial</option></select></label></div>
+        <div className="form-grid"><label>Requirement *<select required name="requirement" defaultValue={initialRequirement}><option value="" disabled>Select requirement</option><option value="buy">Buy</option><option value="sell">Sell</option><option value="rent">Rent</option><option value="lease">Lease</option><option value="consultation">General Consultation</option></select></label><label>Budget Range<input name="budget" placeholder="Optional" /></label></div>
         <label>Message / Requirement Details *<textarea required rows="5" name="message" /></label>
         <label className="consent"><input required type="checkbox" name="consent" value="yes" /> I agree to be contacted regarding this enquiry.</label>
         {status === 'unavailable' && <p className="form-message warning" role="alert">Online enquiry delivery is awaiting the confirmed company endpoint. Your information has not been sent.</p>}

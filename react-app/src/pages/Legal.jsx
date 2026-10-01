@@ -40,6 +40,6 @@ const PAGES = {
 
 export default function Legal({ type }) {
   const page = PAGES[type]
-  useTitle(`${page.title} | Nobelcrest Properties`, `${page.title} for the Nobelcrest Properties website.`, [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${window.location.origin}/` }, { '@type': 'ListItem', position: 2, name: page.title, item: window.location.href }] }])
+  useTitle(`${page.title} | Nobelcrest Properties`, `${page.title} for the Nobelcrest Properties website.`, [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${window.location.origin}/` }, { '@type': 'ListItem', position: 2, name: page.title, item: window.location.href }] }], { noindex: true })
   return <><PageHero title={page.title} sub={page.intro} img={IMG.lobby} crumb={page.title} /><section><div className="wrap legal-page"><div className="legal-notice"><b>Pre-launch legal review</b><p>This implementation draft must be reviewed and approved for the company’s actual operations and jurisdictions before the website goes live.</p></div>{page.sections.map(([title, text]) => <article key={title}><h2>{title}</h2><p>{text}</p></article>)}</div></section></>
 }

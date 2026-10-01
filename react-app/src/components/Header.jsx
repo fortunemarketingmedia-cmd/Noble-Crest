@@ -23,7 +23,7 @@ export default function Header() {
           <NavLink to={item.to} end={item.to === '/'} onClick={close}>{item.label}</NavLink>
           {item.label === 'Projects' && <div className="drop mega-menu"><div className="mega-intro"><span>Property discovery</span><h3>Explore by requirement.</h3><p>Five focused ways to begin a clearer property conversation.</p><Link to="/projects" onClick={close}>View all opportunities</Link></div><div className="mega-links">{PROJECT_LINKS.map((p, index) => <Link key={p.to} to={p.to} onClick={close}><span>0{index + 1}</span><div><b>{p.label}</b><small>{p.label === 'Commercial' ? 'Space for business' : p.label === 'Residential' ? 'Homes and residences' : `${p.label} opportunities`}</small></div><i>↗</i></Link>)}</div></div>}
         </li>)}
-        <li><EnquireLink className="btn nav-cta">Speak With Our Team</EnquireLink></li>
+        <li><EnquireLink className="btn nav-cta"><span className="nav-cta-desktop">Speak With Our Team</span><span className="nav-cta-mobile">Enquire Now</span></EnquireLink></li>
       </ul></nav>
     </div></header>
   </>

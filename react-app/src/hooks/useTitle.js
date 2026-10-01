@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function useTitle(title, description, schemas = [], { noindex = false } = {}) {
+export default function useTitle(title, description, schemas = [], { noindex = false, canonicalPath } = {}) {
   const schemaJson = JSON.stringify(schemas)
   useEffect(() => {
     document.title = title
@@ -9,7 +9,7 @@ export default function useTitle(title, description, schemas = [], { noindex = f
     tag.content = description
     let canonical = document.querySelector('link[rel="canonical"]')
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical) }
-    canonical.href = `${window.location.origin}${window.location.pathname}`
+    canonical.href = `${window.location.origin}${canonicalPath || window.location.pathname}`
     let robots = document.querySelector('meta[name="robots"]')
     if (!robots) { robots = document.createElement('meta'); robots.name = 'robots'; document.head.appendChild(robots) }
     robots.content = noindex ? 'noindex, follow' : 'index, follow'
@@ -21,5 +21,5 @@ export default function useTitle(title, description, schemas = [], { noindex = f
       script.textContent = JSON.stringify(schema)
       document.head.appendChild(script)
     })
-  }, [title, description, noindex, schemaJson])
+  }, [title, description, noindex, schemaJson, canonicalPath])
 }

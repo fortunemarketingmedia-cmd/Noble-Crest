@@ -13,7 +13,7 @@ export const COMPANY = {
   searchConsoleVerification: import.meta.env.VITE_SEARCH_CONSOLE_VERIFICATION || '',
 }
 
-export const PROJECTS = []
+export { PROJECTS, VERIFIED_PROJECTS } from './projects.js'
 
 export async function submitEnquiry(payload) {
   if (!COMPANY.enquiryEndpoint) return { configured: false }
