@@ -26,7 +26,7 @@ export default function Contact() {
     } catch { setStatus('error') }
   }
 
-  const direct = [['Contact Numbers', <>{COMPANY.phones.map((phone, index) => <span key={phone}>{index > 0 && ', '}<a href={`tel:${phone}`}>{phone}</a></span>)}</>], COMPANY.whatsapp && ['WhatsApp', <a href={`https://wa.me/${COMPANY.whatsapp.replace(/\D/g, '')}`} key="whatsapp">{COMPANY.whatsapp}</a>], COMPANY.email && ['Email', <a href={`mailto:${COMPANY.email}`} key="email">{COMPANY.email}</a>], ['Pune Office', COMPANY.indiaAddress], COMPANY.dubaiAddress && ['Dubai Office', COMPANY.dubaiAddress], ['Property Types', COMPANY.propertyTypes.join(', ')], ['MahaRERA Registration No.', COMPANY.reraNumber], COMPANY.businessHours && ['Business Hours', COMPANY.businessHours]].filter(Boolean)
+  const direct = [['Contact Numbers', <>{COMPANY.phones.map((phone, index) => <span key={phone}>{index > 0 && ', '}<a href={`tel:${phone}`}>{phone}</a></span>)}</>], COMPANY.whatsapp && ['WhatsApp', <a href={`https://wa.me/${COMPANY.whatsapp.replace(/\D/g, '')}`} key="whatsapp">{COMPANY.whatsapp}</a>], COMPANY.email && ['Email', <a href={`mailto:${COMPANY.email}`} key="email">{COMPANY.email}</a>], ['Office Address', COMPANY.indiaAddress], COMPANY.dubaiAddress && ['Dubai Office', COMPANY.dubaiAddress], ['Property Types', COMPANY.propertyTypes.join(', ')], ['RERA No.', COMPANY.reraNumber], COMPANY.businessHours && ['Business Hours', COMPANY.businessHours]].filter(Boolean)
 
   return <>
     <PageHero title="Let’s Talk About Your Property Requirement" sub="The more context you provide, the easier it is for our team to understand the property conversation most relevant to you." img={IMG.glass} crumb="Contact Us" />
