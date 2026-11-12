@@ -6,6 +6,7 @@ import PropertySearch from '../components/PropertySearch'
 import { EnquireLink } from '../components/EnquireModal'
 import { HOME_FAQS, MARKET_CARDS, SERVICES, LEADERS } from '../data/site'
 import { IMG } from '../data/images'
+import { COMPANY } from '../data/config'
 import useTitle from '../hooks/useTitle'
 
 const PREVIEW_PROPERTIES = [
@@ -23,7 +24,7 @@ const JOURNEY = [
 
 export default function Home() {
   useTitle('Nobelcrest Properties | Real Estate Consultancy in India & Dubai', 'Explore residential and commercial real estate opportunities across Mumbai, Pune and Dubai with Nobelcrest Properties. Transparent guidance for buying, selling, renting and leasing.', [
-    { '@context': 'https://schema.org', '@type': 'Organization', name: 'Nobelcrest Properties LLP', url: window.location.origin, description: 'Relationship-driven real estate consultancy serving residential and commercial property requirements across India and Dubai.', areaServed: ['Mumbai', 'Pune', 'Dubai'] },
+    { '@context': 'https://schema.org', '@type': 'RealEstateAgent', name: COMPANY.name, url: window.location.origin, telephone: COMPANY.phones, identifier: COMPANY.reraNumber, address: { '@type': 'PostalAddress', streetAddress: COMPANY.indiaAddress, addressLocality: 'Pune', addressRegion: 'Maharashtra', addressCountry: 'IN' }, description: 'Relationship-driven real estate consultancy serving residential, commercial and industrial property requirements across India and Dubai.', areaServed: ['Mumbai', 'Pune', 'Dubai'] },
     { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Nobelcrest Properties LLP', url: window.location.origin },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: HOME_FAQS.map(([name, text]) => ({ '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text } })) },
   ])
@@ -35,7 +36,7 @@ export default function Home() {
     </div>
     <div className="search-shell"><div className="wrap"><PropertySearch /></div></div>
 
-    <div className="brand-marquee" aria-hidden="true"><div><span>Residential</span><i>✦</i><span>Commercial</span><i>✦</i><span>Mumbai</span><i>✦</i><span>Pune</span><i>✦</i><span>Dubai</span><i>✦</i><span>Buy</span><i>✦</i><span>Sell</span><i>✦</i><span>Rent</span><i>✦</i><span>Lease</span><i>✦</i><span>Residential</span><i>✦</i><span>Commercial</span></div></div>
+    <div className="brand-marquee" aria-hidden="true"><div><span>Residential</span><i>✦</i><span>Commercial</span><i>✦</i><span>Industrial</span><i>✦</i><span>Mumbai</span><i>✦</i><span>Pune</span><i>✦</i><span>Dubai</span><i>✦</i><span>Buy</span><i>✦</i><span>Sell</span><i>✦</i><span>Rent</span><i>✦</i><span>Lease</span><i>✦</i><span>Residential</span><i>✦</i><span>Commercial</span></div></div>
 
     <section className="intro-statement"><div className="wrap editorial-split">
       <Reveal><span className="eyebrow">Nobelcrest Properties LLP</span><h2>Clarity starts with your requirement.</h2></Reveal>
